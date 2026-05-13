@@ -15,123 +15,252 @@ MonoBehaviour:
   _className: Mage
   _classDescription: 
   _classStats:
-    _maxHealth: 100
-    _maxStamina: 100
-    _maxMana: 80
-    _maxStrength: 10
-    _maxEndurance: 10
-    _maxIntelligence: 10
-    _maxFaith: 10
-    _maxAgility: 10
-    _maxCarryWeight: 60
-  _resourceBonus:
-    _healthRegen: 0
-    _staminaRegen: 0
-    _manaRegen: 0.1
-    _potionEffectiveness: 0
-  _meleeBonus:
-    _meleeDamage: 0
-    _lightAttackDamage: 0
-    _heavyAttackDamage: 0
-    _criticalHitChance: 0
-    _criticalHitDamage: 0
-    _attackSpeed: 0
-  _rangedBonus:
-    _rangedDamage: 0
-    _projectileSpeed: 0
-    _reloadSpeed: 0
-    _drawSpeed: 0
-    _headshotDamage: 0
-    _ammoRecoveryChance: 0
-  _magicBonus:
-    _magicDamage: 0.15
-    _manaCost: 0
-    _castSpeed: 0
-    _spellProjectileSpeed: 0
-    _AOESize: 0
-    _manaRecoveryAfterKill: 0
-  _xpBonus:
-    _upgradePoint: 0
-    _numLevelsPerUpgradePoint: 0
-    _xpGain: 0
-    _combatXpGain: 0
-    _questXpGain: 0
-  _defenceBonus:
-    _armourEffectiveness: 0
-    _physicalResistance: 0
-    _magicResistance: 0
-    _blockDamage: 0
-    _parryWindow: 0
-  _abilities:
-  - _abilityName: Arc Bolt
-    _abilityDescription: Shoots an arc of lighting at a target.
-    _durration: 0
-    _cooldown: 5
-    _meleeBonus:
-      _meleeDamage: 0
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0
-      _criticalHitDamage: 0
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0.5
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0
-      _magicResistance: 0
-      _blockDamage: 0
-      _parryWindow: 0
-  - _abilityName: Flame Wave
-    _abilityDescription: Fires a short range burst of intense flame
-    _durration: 0
+    _maxHealth: 80
+    _maxStamina: 70
+    _maxMana: 50
+    _strength: 10
+    _endurance: 10
+    _intelligence: 10
+    _faith: 10
+    _agility: 10
+    _maxCarryWeight: 70
+  _bonuses:
+  - _bonusId: class_mage_health_penalty
+    _displayName: Mage Health Penalty
+    _description: -15 Max Health
+    _affectedStat: 0
+    _operationType: 0
+    _value: -15
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_max_mana
+    _displayName: Mage Mana
+    _description: +40 Max Mana
+    _affectedStat: 2
+    _operationType: 0
+    _value: 40
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_strength_penalty
+    _displayName: Mage Strength Penalty
+    _description: -2 Strength
+    _affectedStat: 3
+    _operationType: 0
+    _value: -2
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_endurance_penalty
+    _displayName: Mage Endurance Penalty
+    _description: -1 Endurance
+    _affectedStat: 4
+    _operationType: 0
+    _value: -1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_intelligence
+    _displayName: Mage Intelligence
+    _description: +4 Intelligence
+    _affectedStat: 5
+    _operationType: 0
+    _value: 4
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_faith
+    _displayName: Mage Faith
+    _description: +1 Faith
+    _affectedStat: 6
+    _operationType: 0
+    _value: 1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_carry_weight_penalty
+    _displayName: Mage Carry Weight Penalty
+    _description: -5 Carry Weight
+    _affectedStat: 8
+    _operationType: 0
+    _value: -5
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_spell_damage
+    _displayName: Mage Spell Power
+    _description: +15% Spell Damage
+    _affectedStat: 25
+    _operationType: 2
+    _value: 0.15
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_mage_mana_regeneration
+    _displayName: Mage Mana Flow
+    _description: +10% Mana Regeneration
+    _affectedStat: 11
+    _operationType: 2
+    _value: 0.1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  _startingAbilities:
+  - _abilityId: mage_arc_bolt
+    _displayName: Arc Bolt
+    _description: Fires a basic arcane projectile.
+    _category: 2
+    _classAffinity: Mage
+    _requiredLevel: 1
+    _resourceCostType: 3
+    _resourceCostAmount: 12
+    _paymentTiming: 1
+    _cooldown: 1.2
+    _castTime: 0.25
+    _recoveryTime: 0.25
+    _range: 30
+    _targetingMode: 3
+    _damageType: 2
+    _basePower: 18
+    _scalingStat: 3
+    _scalingCoefficient: 1
+    _inputSlot: 5
+    _tags:
+    - Mage
+    - Projectile
+    - Arcane
+    - Ranged
+    - ClassAbility
+    _effects:
+    - _effectId: arc_bolt_projectile
+      _effectType: 11
+      _targetRules: 3
+      _value: 18
+      _damageType: 2
+      _scalingStat: 3
+      _scalingCoefficient: 1
+      _canCrit: 1
+      _projectileSpeed: 32
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+  - _abilityId: mage_flame_wave
+    _displayName: Flame Wave
+    _description: Fires a short-range cone of fire.
+    _category: 2
+    _classAffinity: Mage
+    _requiredLevel: 1
+    _resourceCostType: 3
+    _resourceCostAmount: 28
+    _paymentTiming: 1
     _cooldown: 10
-    _meleeBonus:
-      _meleeDamage: 0
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0
-      _criticalHitDamage: 0
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 1
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 1
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0
-      _magicResistance: 0
-      _blockDamage: 0
-      _parryWindow: 0
-  - _abilityName: Magic Shield
-    _abilityDescription: Surrounds the caster with a protective magic shield.
-    _durration: 10
-    _cooldown: 20
-    _meleeBonus:
-      _meleeDamage: 0
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0
-      _criticalHitDamage: 0
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0.5
-      _magicResistance: 0.5
-      _blockDamage: 0
-      _parryWindow: 0
+    _castTime: 0.45
+    _recoveryTime: 0.4
+    _range: 5
+    _areaSize: 3
+    _targetingMode: 4
+    _damageType: 1
+    _basePower: 28
+    _scalingStat: 3
+    _scalingCoefficient: 1.1
+    _inputSlot: 6
+    _tags:
+    - Mage
+    - Cone
+    - Fire
+    - Area
+    - ClassAbility
+    _effects:
+    - _effectId: flame_wave_damage
+      _effectType: 0
+      _targetRules: 4
+      _value: 28
+      _damageType: 1
+      _scalingStat: 3
+      _scalingCoefficient: 1.1
+      _statusApplied: Burning
+      _radius: 3
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+  - _abilityId: mage_mana_shield
+    _displayName: Mana Shield
+    _description: Surrounds the caster with a protective magic shield.
+    _category: 5
+    _classAffinity: Mage
+    _requiredLevel: 1
+    _resourceCostType: 3
+    _resourceCostAmount: 20
+    _paymentTiming: 0
+    _cooldown: 18
+    _channelDuration: 10
+    _targetingMode: 0
+    _inputSlot: 7
+    _tags:
+    - Mage
+    - Defensive
+    - Shield
+    - Buff
+    - ClassAbility
+    _effects:
+    - _effectId: mana_shield_buff
+      _effectType: 2
+      _targetRules: 0
+      _duration: 10
+      _bonuses:
+      - _bonusId: ability_mana_shield_physical_resistance
+        _displayName: Mana Shield Physical Resistance
+        _description: +35% Physical Resistance
+        _affectedStat: 40
+        _operationType: 2
+        _value: 0.35
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+      - _bonusId: ability_mana_shield_magic_resistance
+        _displayName: Mana Shield Magic Resistance
+        _description: +35% Magic Resistance
+        _affectedStat: 41
+        _operationType: 2
+        _value: 0.35
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+  _defaultLoadout:
+  - _slot: 5
+    _ability:
+      _abilityId: mage_arc_bolt
+  - _slot: 6
+    _ability:
+      _abilityId: mage_flame_wave
+  - _slot: 7
+    _ability:
+      _abilityId: mage_mana_shield

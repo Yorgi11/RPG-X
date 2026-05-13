@@ -6,16 +6,10 @@ public class Class : ScriptableObject
     public string _classDescription;
     public Stats _classStats;
     [Header("Class Bonuses")]
-    public ResourceBonus _resourceBonus;
-    public MeleeBonus _meleeBonus;
-    public RangedBonus _rangedBonus;
-    public MagicBonus _magicBonus;
-    public XPBonus _xpBonus;
-    public DefenceBonus _defenceBonus;
-    public WeaponBonus _weaponBonus;
-    public StaminaBonus _staminaBonus;
+    public BonusDefinition[] _bonuses;
     [Header("Class Abilities")]
-    public Ability[] _abilities;
+    public AbilityDefinition[] _startingAbilities;
+    public AbilityLoadoutEntry[] _defaultLoadout;
     // starting equipment
     // prefered equipment/weapon types
     // weaknesses

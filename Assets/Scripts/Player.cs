@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Character))]
+[RequireComponent(typeof(CharacterAbilityController))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _rangedSpawnPoint;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     private Transform _cameraTransform;
     private Transform _cameraPivotTransform;
     private Character _character;
+    private CharacterAbilityController _abilityController;
     private Movement _movement;
     private MovementType _currentMovementType = MovementType.Walking;
     private InputSystem_Actions _inputActions;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     {
         _movement = GetComponent<Movement>();
         _character = GetComponent<Character>();
+        _abilityController = GetComponent<CharacterAbilityController>();
 
         _transform = transform;
         _yRot = _transform.eulerAngles.y;
@@ -53,7 +56,11 @@ public class Player : MonoBehaviour
 
         if (_inputActions.Player.Attack.IsPressed())
         {
-            if (_projectileLauncher != null)
+            bool usedAbility = _abilityController != null &&
+                _abilityController.TryGetEquippedAbility(AbilityInputSlot.BasicAttack, out _) &&
+                _abilityController.TryUseAbility(AbilityInputSlot.BasicAttack, BuildAbilityContext());
+
+            if (!usedAbility && _projectileLauncher != null)
             {
                 Vector3 target = GetRangedTarget();
                 Transform spawn = _projectileLauncher.ProjectileSpawn != null ? _projectileLauncher.ProjectileSpawn : _rangedSpawnPoint;
@@ -61,7 +68,7 @@ public class Player : MonoBehaviour
                 _rangedSpawnPoint.LookAt(_rangedSpawnPoint.position + dir, Vector3.up);
                 _projectileLauncher.TryShoot(dir);
             }
-            if (_meleeWeapon != null) _meleeWeapon.Swing();
+            if (!usedAbility && _meleeWeapon != null) _meleeWeapon.Swing();
         }
 
         if (_inputActions.Player.Attack.WasReleasedThisFrame() && _projectileLauncher != null)
@@ -113,6 +120,20 @@ public class Player : MonoBehaviour
         System.Array.Clear(_hits, 0, _hits.Length);
         Debug.DrawLine(_cameraTransform.position, hit, Color.red, 5f);
         return hit;
+    }
+    private AbilityUseContext BuildAbilityContext()
+    {
+        Vector3 target = GetRangedTarget();
+        Vector3 origin = _rangedSpawnPoint != null ? _rangedSpawnPoint.position : _transform.position;
+        Vector3 direction = target - origin;
+        if (direction.sqrMagnitude <= 0.0001f) direction = _transform.forward;
+
+        return new AbilityUseContext
+        {
+            _origin = origin,
+            _direction = direction.normalized,
+            _targetPoint = target
+        };
     }
     private sealed class RaycastHitDistanceComparer : IComparer<RaycastHit>
     {

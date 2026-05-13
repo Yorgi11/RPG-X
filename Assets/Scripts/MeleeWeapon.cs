@@ -17,7 +17,23 @@ public class MeleeWeapon : MonoBehaviour
     [SerializeField] private AttackKeyFrame[] _attackPath;
     private Coroutine _swingCoroutine;
     private bool _swingComplete = true;
+    private Character _owner;
     public bool IsSwinging => !_swingComplete;
+
+    private void Awake()
+    {
+        _owner = GetComponentInParent<Character>();
+    }
+
+    public float GetAttackDamage(bool heavyAttack)
+    {
+        float damage = heavyAttack ? _heavyDamage : _lightDamage;
+        if (_owner == null) return damage;
+
+        damage *= 1f + _owner.CurrentBonuses.GetModifierValue(BonusStat.MeleeDamage);
+        damage *= 1f + _owner.CurrentBonuses.GetModifierValue(heavyAttack ? BonusStat.HeavyAttackDamage : BonusStat.LightAttackDamage);
+        return Mathf.Max(0f, damage);
+    }
 
     public void Swing()
     {

@@ -15,99 +15,266 @@ MonoBehaviour:
   _className: Paladin
   _classDescription: 
   _classStats:
-    _maxHealth: 110
-    _maxStamina: 100
-    _maxMana: 60
-    _maxStrength: 10
-    _maxEndurance: 10
-    _maxIntelligence: 10
-    _maxFaith: 10
-    _maxAgility: 10
+    _maxHealth: 80
+    _maxStamina: 70
+    _maxMana: 50
+    _strength: 10
+    _endurance: 10
+    _intelligence: 10
+    _faith: 10
+    _agility: 10
     _maxCarryWeight: 70
-  _resourceBonus:
-    _healthRegen: 1
-    _staminaRegen: 0
-    _manaRegen: 0
-    _potionEffectiveness: 0
-  _meleeBonus:
-    _meleeDamage: 0
-    _lightAttackDamage: 0
-    _heavyAttackDamage: 0
-    _criticalHitChance: 0
-    _criticalHitDamage: 0
-    _attackSpeed: 0
-  _rangedBonus:
-    _rangedDamage: 0
-    _projectileSpeed: 0
-    _reloadSpeed: 0
-    _drawSpeed: 0
-    _headshotDamage: 0
-    _ammoRecoveryChance: 0
-  _magicBonus:
-    _magicDamage: 0
-    _manaCost: 0
-    _castSpeed: 0
-    _spellProjectileSpeed: 0
-    _AOESize: 0
-    _manaRecoveryAfterKill: 0
-  _xpBonus:
-    _upgradePoint: 0
-    _numLevelsPerUpgradePoint: 0
-    _xpGain: 0
-    _combatXpGain: 0
-    _questXpGain: 0
-  _defenceBonus:
-    _armourEffectiveness: 0
-    _physicalResistance: 0.1
-    _magicResistance: 0.1
-    _blockDamage: 0
-    _parryWindow: 0
-  _abilities:
-  - _abilityName: Holy Strike
-    _abilityDescription: 
-    _durration: 0
-    _cooldown: 10
-    _meleeBonus:
-      _meleeDamage: 0.5
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0
-      _criticalHitDamage: 0
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0.5
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0
-      _magicResistance: 0
-      _blockDamage: 0
-      _parryWindow: 0
-  - _abilityName: Radiant Guard
-    _abilityDescription: 
-    _durration: 10
-    _cooldown: 20
-    _meleeBonus:
-      _meleeDamage: 0.5
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0
-      _criticalHitDamage: 0
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0.5
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0.35
-      _magicResistance: 0.35
-      _blockDamage: 0.35
-      _parryWindow: 0.05
+  _bonuses:
+  - _bonusId: class_paladin_max_health
+    _displayName: Paladin Health
+    _description: +10 Max Health
+    _affectedStat: 0
+    _operationType: 0
+    _value: 10
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_max_stamina
+    _displayName: Paladin Stamina
+    _description: +5 Max Stamina
+    _affectedStat: 1
+    _operationType: 0
+    _value: 5
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_max_mana
+    _displayName: Paladin Mana
+    _description: +15 Max Mana
+    _affectedStat: 2
+    _operationType: 0
+    _value: 15
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_strength
+    _displayName: Paladin Strength
+    _description: +1 Strength
+    _affectedStat: 3
+    _operationType: 0
+    _value: 1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_endurance
+    _displayName: Paladin Endurance
+    _description: +2 Endurance
+    _affectedStat: 4
+    _operationType: 0
+    _value: 2
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_faith
+    _displayName: Paladin Faith
+    _description: +3 Faith
+    _affectedStat: 6
+    _operationType: 0
+    _value: 3
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_agility_penalty
+    _displayName: Paladin Agility Penalty
+    _description: -1 Agility
+    _affectedStat: 7
+    _operationType: 0
+    _value: -1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_carry_weight
+    _displayName: Paladin Carry Weight
+    _description: +5 Carry Weight
+    _affectedStat: 8
+    _operationType: 0
+    _value: 5
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_healing_effectiveness
+    _displayName: Paladin Healing
+    _description: +15% Healing Effectiveness
+    _affectedStat: 27
+    _operationType: 2
+    _value: 0.15
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_defense
+    _displayName: Paladin Defense
+    _description: +10% Defense
+    _affectedStat: 38
+    _operationType: 2
+    _value: 0.1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_paladin_holy_damage
+    _displayName: Paladin Holy Damage
+    _description: +10% Holy Damage
+    _affectedStat: 26
+    _operationType: 2
+    _value: 0.1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  _startingAbilities:
+  - _abilityId: paladin_holy_strike
+    _displayName: Holy Strike
+    _description: Melee attack with holy damage.
+    _category: 3
+    _classAffinity: Paladin
+    _requiredLevel: 1
+    _requiredWeaponType: Melee
+    _resourceCostType: 2
+    _resourceCostAmount: 12
+    _paymentTiming: 0
+    _cooldown: 4
+    _recoveryTime: 0.45
+    _range: 2
+    _targetingMode: 1
+    _damageType: 3
+    _basePower: 24
+    _scalingStat: 4
+    _scalingCoefficient: 1
+    _inputSlot: 5
+    _tags:
+    - Paladin
+    - Melee
+    - Holy
+    - ClassAbility
+    _effects:
+    - _effectId: holy_strike_damage
+      _effectType: 0
+      _targetRules: 1
+      _value: 24
+      _damageType: 3
+      _scalingStat: 4
+      _scalingCoefficient: 1
+      _canCrit: 1
+      _radius: 1
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+  - _abilityId: paladin_minor_heal
+    _displayName: Minor Heal
+    _description: Restores a small amount of health.
+    _category: 3
+    _classAffinity: Paladin
+    _requiredLevel: 1
+    _resourceCostType: 3
+    _resourceCostAmount: 18
+    _paymentTiming: 1
+    _cooldown: 8
+    _castTime: 0.5
+    _recoveryTime: 0.3
+    _targetingMode: 0
+    _basePower: 30
+    _scalingStat: 4
+    _scalingCoefficient: 1.1
+    _inputSlot: 6
+    _tags:
+    - Paladin
+    - Healing
+    - Holy
+    - Self
+    - ClassAbility
+    _effects:
+    - _effectId: minor_heal_restore
+      _effectType: 1
+      _targetRules: 0
+      _value: 30
+      _scalingStat: 4
+      _scalingCoefficient: 1.1
+  - _abilityId: paladin_radiant_guard
+    _displayName: Radiant Guard
+    _description: Temporarily reduces incoming damage.
+    _category: 5
+    _classAffinity: Paladin
+    _requiredLevel: 1
+    _resourceCostType: 3
+    _resourceCostAmount: 22
+    _paymentTiming: 0
+    _cooldown: 14
+    _channelDuration: 10
+    _targetingMode: 0
+    _inputSlot: 7
+    _tags:
+    - Paladin
+    - Defensive
+    - Buff
+    - Holy
+    - ClassAbility
+    _effects:
+    - _effectId: radiant_guard_buff
+      _effectType: 3
+      _targetRules: 0
+      _duration: 10
+      _bonuses:
+      - _bonusId: ability_radiant_guard_physical_resistance
+        _displayName: Radiant Guard Physical Resistance
+        _description: +25% Physical Resistance
+        _affectedStat: 40
+        _operationType: 2
+        _value: 0.25
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+      - _bonusId: ability_radiant_guard_magic_resistance
+        _displayName: Radiant Guard Magic Resistance
+        _description: +25% Magic Resistance
+        _affectedStat: 41
+        _operationType: 2
+        _value: 0.25
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+  _defaultLoadout:
+  - _slot: 5
+    _ability:
+      _abilityId: paladin_holy_strike
+  - _slot: 6
+    _ability:
+      _abilityId: paladin_minor_heal
+  - _slot: 7
+    _ability:
+      _abilityId: paladin_radiant_guard

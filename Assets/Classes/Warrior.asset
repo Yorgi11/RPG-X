@@ -15,99 +15,399 @@ MonoBehaviour:
   _className: Warrior
   _classDescription: 
   _classStats:
-    _maxHealth: 100
-    _maxStamina: 100
+    _maxHealth: 80
+    _maxStamina: 70
     _maxMana: 50
-    _maxStrength: 10
-    _maxEndurance: 10
-    _maxIntelligence: 10
-    _maxFaith: 10
-    _maxAgility: 10
+    _strength: 10
+    _endurance: 10
+    _intelligence: 10
+    _faith: 10
+    _agility: 10
     _maxCarryWeight: 70
-  _resourceBonus:
-    _healthRegen: 0
-    _staminaRegen: 0
-    _manaRegen: 0
-    _potionEffectiveness: 0
-  _meleeBonus:
-    _meleeDamage: 0.1
-    _lightAttackDamage: 0
-    _heavyAttackDamage: 0
-    _criticalHitChance: 0
-    _criticalHitDamage: 0
-    _attackSpeed: 0
-  _rangedBonus:
-    _rangedDamage: 0
-    _projectileSpeed: 0
-    _reloadSpeed: 0
-    _drawSpeed: 0
-    _headshotDamage: 0
-    _ammoRecoveryChance: 0
-  _magicBonus:
-    _magicDamage: 0
-    _manaCost: 0
-    _castSpeed: 0
-    _spellProjectileSpeed: 0
-    _AOESize: 0
-    _manaRecoveryAfterKill: 0
-  _xpBonus:
-    _upgradePoint: 0
-    _numLevelsPerUpgradePoint: 0
-    _xpGain: 0
-    _combatXpGain: 0
-    _questXpGain: 0
-  _defenceBonus:
-    _armourEffectiveness: 0.1
-    _physicalResistance: 0
-    _magicResistance: 0
-    _blockDamage: 0
-    _parryWindow: 0
-  _abilities:
-  - _abilityName: Power Strike
-    _abilityDescription: Heavy melee attack that deals bonus damage.
-    _durration: 0
+  _bonuses:
+  - _bonusId: class_warrior_max_health
+    _displayName: Warrior Health
+    _description: +20 Max Health
+    _affectedStat: 0
+    _operationType: 0
+    _value: 20
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_max_stamina
+    _displayName: Warrior Stamina
+    _description: +15 Max Stamina
+    _affectedStat: 1
+    _operationType: 0
+    _value: 15
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_mana_penalty
+    _displayName: Warrior Mana Penalty
+    _description: -10 Max Mana
+    _affectedStat: 2
+    _operationType: 0
+    _value: -10
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_strength
+    _displayName: Warrior Strength
+    _description: +3 Strength
+    _affectedStat: 3
+    _operationType: 0
+    _value: 3
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_endurance
+    _displayName: Warrior Endurance
+    _description: +2 Endurance
+    _affectedStat: 4
+    _operationType: 0
+    _value: 2
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_intelligence_penalty
+    _displayName: Warrior Intelligence Penalty
+    _description: -2 Intelligence
+    _affectedStat: 5
+    _operationType: 0
+    _value: -2
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_carry_weight
+    _displayName: Warrior Carry Weight
+    _description: +10 Carry Weight
+    _affectedStat: 8
+    _operationType: 0
+    _value: 10
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_melee_damage
+    _displayName: Warrior Melee Training
+    _description: +10% Melee Damage
+    _affectedStat: 13
+    _operationType: 2
+    _value: 0.1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  - _bonusId: class_warrior_armour_effectiveness
+    _displayName: Warrior Armour Training
+    _description: +10% Armour Effectiveness
+    _affectedStat: 39
+    _operationType: 2
+    _value: 0.1
+    _sourceType: 0
+    _durationType: 0
+    _stackingRule: 6
+    _condition: 
+    _priority: 0
+    _tags: []
+  _startingAbilities:
+  - _abilityId: warrior_power_strike
+    _displayName: Power Strike
+    _description: Heavy melee attack that deals bonus physical damage.
+    _category: 1
+    _classAffinity: Warrior
+    _requiredClass: 
+    _requiredLevel: 1
+    _requiredSkill: 
+    _requiredWeaponType: Melee
+    _requiredEquipmentTag: 
+    _resourceCostType: 2
+    _resourceCostAmount: 25
+    _paymentTiming: 0
+    _cooldown: 4
+    _castTime: 0
+    _channelDuration: 0
+    _recoveryTime: 0.6
+    _range: 2
+    _areaSize: 1
+    _targetingMode: 1
+    _damageType: 0
+    _basePower: 35
+    _scalingStat: 1
+    _scalingCoefficient: 1.2
+    _movementLockMode: 3
+    _canBeInterruptedByDamage: 1
+    _canBeInterruptedByStagger: 1
+    _canBeDodgeCancelled: 0
+    _canBeBlockCancelled: 0
+    _animation: {fileID: 0}
+    _startVfx: {fileID: 0}
+    _castVfx: {fileID: 0}
+    _impactVfx: {fileID: 0}
+    _startSfx: {fileID: 0}
+    _castSfx: {fileID: 0}
+    _impactSfx: {fileID: 0}
+    _icon: {fileID: 0}
+    _inputSlot: 5
+    _aiUsage:
+      _minimumRange: 0
+      _preferredRange: 2
+      _maximumRange: 2.5
+      _weight: 1
+      _useConditions: []
+      _comboFollowupAbilityIds: []
+    _upgradeAbilityIds: []
+    _tags:
+    - Warrior
+    - Melee
+    - Physical
+    - Stagger
+    - ClassAbility
+    _effects:
+    - _effectId: power_strike_damage
+      _effectType: 0
+      _targetRules: 1
+      _value: 35
+      _duration: 0
+      _tickRate: 0
+      _damageType: 0
+      _scalingStat: 1
+      _scalingCoefficient: 1.2
+      _canCrit: 1
+      _canBeBlocked: 1
+      _canBeParried: 1
+      _canBeDodged: 1
+      _canBeResisted: 1
+      _statusApplied: Staggered
+      _bonuses: []
+      _radius: 1
+      _angle: 60
+      _force: 0
+      _projectileSpeed: 20
+      _projectilePenetration: 0
+      _projectileMesh: {fileID: 0}
+      _projectileMaterial: {fileID: 0}
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      _vfx: {fileID: 0}
+      _sfx: {fileID: 0}
+  - _abilityId: warrior_iron_guard
+    _displayName: Iron Guard
+    _description: Temporarily improves blocking and physical resistance.
+    _category: 5
+    _classAffinity: Warrior
+    _requiredClass: 
+    _requiredLevel: 1
+    _requiredSkill: 
+    _requiredWeaponType: 
+    _requiredEquipmentTag: 
+    _resourceCostType: 2
+    _resourceCostAmount: 20
+    _paymentTiming: 0
+    _cooldown: 12
+    _castTime: 0
+    _channelDuration: 5
+    _recoveryTime: 0.2
+    _range: 0
+    _areaSize: 0
+    _targetingMode: 0
+    _damageType: 0
+    _basePower: 0
+    _scalingStat: 2
+    _scalingCoefficient: 0
+    _movementLockMode: 1
+    _canBeInterruptedByDamage: 0
+    _canBeInterruptedByStagger: 1
+    _canBeDodgeCancelled: 1
+    _canBeBlockCancelled: 1
+    _animation: {fileID: 0}
+    _startVfx: {fileID: 0}
+    _castVfx: {fileID: 0}
+    _impactVfx: {fileID: 0}
+    _startSfx: {fileID: 0}
+    _castSfx: {fileID: 0}
+    _impactSfx: {fileID: 0}
+    _icon: {fileID: 0}
+    _inputSlot: 6
+    _aiUsage:
+      _minimumRange: 0
+      _preferredRange: 1
+      _maximumRange: 4
+      _weight: 1
+      _useConditions: []
+      _comboFollowupAbilityIds: []
+    _upgradeAbilityIds: []
+    _tags:
+    - Warrior
+    - Defensive
+    - Buff
+    - ClassAbility
+    _effects:
+    - _effectId: iron_guard_buff
+      _effectType: 3
+      _targetRules: 0
+      _value: 0
+      _duration: 5
+      _tickRate: 0
+      _damageType: 0
+      _scalingStat: 0
+      _scalingCoefficient: 0
+      _canCrit: 0
+      _canBeBlocked: 0
+      _canBeParried: 0
+      _canBeDodged: 0
+      _canBeResisted: 0
+      _statusApplied: 
+      _bonuses:
+      - _bonusId: ability_iron_guard_block_efficiency
+        _displayName: Iron Guard Block Efficiency
+        _description: +35% Block Efficiency
+        _affectedStat: 42
+        _operationType: 2
+        _value: 0.35
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+        _condition: 
+        _priority: 0
+        _tags: []
+      - _bonusId: ability_iron_guard_physical_resistance
+        _displayName: Iron Guard Physical Resistance
+        _description: +20% Physical Resistance
+        _affectedStat: 40
+        _operationType: 2
+        _value: 0.2
+        _sourceType: 2
+        _durationType: 2
+        _stackingRule: 6
+        _condition: 
+        _priority: 0
+        _tags: []
+      _radius: 1
+      _angle: 60
+      _force: 0
+      _projectileSpeed: 20
+      _projectilePenetration: 0
+      _projectileMesh: {fileID: 0}
+      _projectileMaterial: {fileID: 0}
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      _vfx: {fileID: 0}
+      _sfx: {fileID: 0}
+  - _abilityId: warrior_battle_rush
+    _displayName: Battle Rush
+    _description: Burst movement toward an enemy.
+    _category: 6
+    _classAffinity: Warrior
+    _requiredClass: 
+    _requiredLevel: 1
+    _requiredSkill: 
+    _requiredWeaponType: 
+    _requiredEquipmentTag: 
+    _resourceCostType: 2
+    _resourceCostAmount: 30
+    _paymentTiming: 0
     _cooldown: 10
-    _meleeBonus:
-      _meleeDamage: 1
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0.1
-      _criticalHitDamage: 0.2
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0
-      _magicResistance: 0
-      _blockDamage: 0
-      _parryWindow: 0
-  - _abilityName: Iron Guard
-    _abilityDescription: Temporarily improves blocking.
-    _durration: 5
-    _cooldown: 10
-    _meleeBonus:
-      _meleeDamage: 1
-      _lightAttackDamage: 0
-      _heavyAttackDamage: 0
-      _criticalHitChance: 0.1
-      _criticalHitDamage: 0.2
-      _attackSpeed: 0
-    _magicBonus:
-      _magicDamage: 0
-      _manaCost: 0
-      _castSpeed: 0
-      _spellProjectileSpeed: 0
-      _AOESize: 0
-      _manaRecoveryAfterKill: 0
-    _defenceBonus:
-      _armourEffectiveness: 0
-      _physicalResistance: 0
-      _magicResistance: 0
-      _blockDamage: 0.5
-      _parryWindow: 0
+    _castTime: 0
+    _channelDuration: 0
+    _recoveryTime: 0.35
+    _range: 8
+    _areaSize: 0
+    _targetingMode: 7
+    _damageType: 0
+    _basePower: 0
+    _scalingStat: 5
+    _scalingCoefficient: 0
+    _movementLockMode: 4
+    _canBeInterruptedByDamage: 0
+    _canBeInterruptedByStagger: 1
+    _canBeDodgeCancelled: 0
+    _canBeBlockCancelled: 0
+    _animation: {fileID: 0}
+    _startVfx: {fileID: 0}
+    _castVfx: {fileID: 0}
+    _impactVfx: {fileID: 0}
+    _startSfx: {fileID: 0}
+    _castSfx: {fileID: 0}
+    _impactSfx: {fileID: 0}
+    _icon: {fileID: 0}
+    _inputSlot: 7
+    _aiUsage:
+      _minimumRange: 3
+      _preferredRange: 6
+      _maximumRange: 8
+      _weight: 1
+      _useConditions: []
+      _comboFollowupAbilityIds: []
+    _upgradeAbilityIds: []
+    _tags:
+    - Warrior
+    - Movement
+    - ClassAbility
+    _effects:
+    - _effectId: battle_rush_movement
+      _effectType: 5
+      _targetRules: 7
+      _value: 0
+      _duration: 0
+      _tickRate: 0
+      _damageType: 0
+      _scalingStat: 0
+      _scalingCoefficient: 0
+      _canCrit: 0
+      _canBeBlocked: 0
+      _canBeParried: 0
+      _canBeDodged: 0
+      _canBeResisted: 0
+      _statusApplied: 
+      _bonuses: []
+      _radius: 1
+      _angle: 60
+      _force: 8
+      _projectileSpeed: 20
+      _projectilePenetration: 0
+      _projectileMesh: {fileID: 0}
+      _projectileMaterial: {fileID: 0}
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      _vfx: {fileID: 0}
+      _sfx: {fileID: 0}
+  _defaultLoadout:
+  - _slot: 5
+    _ability:
+      _abilityId: warrior_power_strike
+      _displayName: Power Strike
+  - _slot: 6
+    _ability:
+      _abilityId: warrior_iron_guard
+      _displayName: Iron Guard
+  - _slot: 7
+    _ability:
+      _abilityId: warrior_battle_rush
+      _displayName: Battle Rush

@@ -90,10 +90,17 @@ public class ProjectileLauncher : MonoBehaviour
         ConsumeResource();
 
         Transform spawn = _projectileSpawn != null ? _projectileSpawn : transform;
+        float projectileVelocity = _resourceOwner != null ?
+            _resourceOwner.GetProjectileVelocity(_projectileVelocity, _damageType) :
+            _projectileVelocity;
+        float projectileDamage = _resourceOwner != null ?
+            _resourceOwner.GetProjectileDamage(_projectileDamage, _damageType) :
+            _projectileDamage;
+
         LocalProjectilePool.Instance.SpawnProjectile(
             spawn.position,
-            launchDirection.normalized * _projectileVelocity,
-            _projectileDamage,
+            launchDirection.normalized * projectileVelocity,
+            projectileDamage,
             _projectilePenetration,
             _damageType,
             _projectileMesh,
@@ -114,7 +121,7 @@ public class ProjectileLauncher : MonoBehaviour
         {
             ProjectileLaunchResource.None => true,
             ProjectileLaunchResource.Arrows => _resourceOwner != null && _resourceOwner.HasArrows(_arrowsPerShot),
-            ProjectileLaunchResource.Mana => _resourceOwner != null && _resourceOwner.HasMana(_manaPerShot),
+            ProjectileLaunchResource.Mana => _resourceOwner != null && _resourceOwner.HasMana(_resourceOwner.GetManaCost(_manaPerShot)),
             _ => false
         };
     }
@@ -129,7 +136,7 @@ public class ProjectileLauncher : MonoBehaviour
                 _resourceOwner.TrySpendArrows(_arrowsPerShot);
                 break;
             case ProjectileLaunchResource.Mana:
-                _resourceOwner.TrySpendMana(_manaPerShot);
+                _resourceOwner.TrySpendMana(_resourceOwner.GetManaCost(_manaPerShot));
                 break;
         }
     }
@@ -165,7 +172,10 @@ public class ProjectileLauncher : MonoBehaviour
         if (horizontalDistance <= 0.001f) launchDirection = verticalDistance >= 0f ? Vector3.up : Vector3.down;
         else
         {
-            float speedSquared = _projectileVelocity * _projectileVelocity;
+            float projectileVelocity = _resourceOwner != null ?
+                _resourceOwner.GetProjectileVelocity(_projectileVelocity, _damageType) :
+                _projectileVelocity;
+            float speedSquared = projectileVelocity * projectileVelocity;
             float speedFourth = speedSquared * speedSquared;
             float discriminant =
                 speedFourth -

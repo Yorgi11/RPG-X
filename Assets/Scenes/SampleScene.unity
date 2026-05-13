@@ -175,7 +175,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _useGravity: 1
-  _resourceOwner: {fileID: 1804577076}
+  _resourceOwner: {fileID: 0}
   _resource: 1
   _unlimitedResource: 1
   _arrowsPerShot: 1
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4301f2ac5d744e69bcbb479594c7825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LocalProjectilePool
-  _initialPoolSize: 64
+  _initialPoolSize: 32
   _maxFlightTime: 3
   _gravity: 9.81
 --- !u!4 &126385938
@@ -363,7 +363,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _useGravity: 0
-  _resourceOwner: {fileID: 1804577076}
+  _resourceOwner: {fileID: 0}
   _resource: 2
   _unlimitedResource: 1
   _arrowsPerShot: 1
@@ -1644,6 +1644,7 @@ GameObject:
   - component: {fileID: 1804577079}
   - component: {fileID: 1804577078}
   - component: {fileID: 1804577076}
+  - component: {fileID: 1804577080}
   - component: {fileID: 1804577077}
   m_Layer: 6
   m_Name: Player
@@ -1664,8 +1665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ffc7bb2999f2146842ab47de689e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  _playerClass: {fileID: 11400000, guid: 7893a6809d2f40f479af10950b83c47d, type: 2}
-  _playerBackStory: {fileID: 0}
   _rangedSpawnPoint: {fileID: 776596499}
   _projectileLauncher: {fileID: 1404709}
   _meleeWeapon: {fileID: 0}
@@ -1678,7 +1677,6 @@ MonoBehaviour:
   _cameraUpperLimit: 90
   _cameraOffset: {x: 0, y: 0, z: -10}
   _jumpBufferTime: 0.25
-  _arrows: 20
 --- !u!114 &1804577077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,6 +1749,22 @@ Transform:
   - {fileID: 582658664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804577080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804577075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ef2eb319694f42abf64e7b2a856e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+  _class: {fileID: 11400000, guid: 7893a6809d2f40f479af10950b83c47d, type: 2}
+  _backStory: {fileID: 11400000, guid: c9f0072edfb37264e93a08502a6969af, type: 2}
+  _levelXp: {fileID: 11400000, guid: 253d0bc20198ae642afb444d554336f1, type: 2}
+  _arrows: 20
 --- !u!1 &1982278973
 GameObject:
   m_ObjectHideFlags: 0
